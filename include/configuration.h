@@ -1,0 +1,12 @@
+#pragma once
+#define WINDOW_H 600
+#define WINDOW_W 800
+#define WINDOW_SIZE WINDOW_H *WINDOW_W
+
+#define RED 0x00FF0000
+#define GREEN 0x0000FF00
+#define BLUE 0x000000FF
+#define BLACK 0x00000000
+#define YELLOW 0xFFFFFF00
+#define PURPLE 0xFF00FF00
+#define WHITE 0x00FFFFFF

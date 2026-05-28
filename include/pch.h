@@ -1,0 +1,14 @@
+#pragma once
+#include "configuration.h"
+#include "math.h"
+#include <SDL2/SDL.h>
+#include <cmath>
+#include <cstring>
+#include <fstream>
+#include <iostream>
+#include <numbers>
+#include <ranges>
+#include <string>
+#include <string_view>
+#include <vector>
+#include <sstream>

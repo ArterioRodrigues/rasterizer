@@ -1,0 +1,11 @@
+#pragma once
+
+struct Vec3 {
+    float x, y, z;
+    Vec3 operator-(Vec3 &other) { return Vec3{x - other.x, y - other.y, z - other.z}; }
+    Vec3 operator-(Vec3 &&other) { return Vec3{x - other.x, y - other.y, z - other.z}; }
+    Vec3 operator+(Vec3 &other) { return Vec3{x + other.x, y + other.y, z + other.z}; }
+    Vec3 operator+(Vec3 &&other) { return Vec3{x + other.x, y + other.y, z + other.z}; }
+    Vec3 operator*(int &n) { return Vec3{x + n, y + n, z + n}; }
+    Vec3 operator*(int &&n) { return Vec3{x + n, y + n, z + n}; }
+};
