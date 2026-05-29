@@ -9,3 +9,7 @@ struct Vec3 {
     Vec3 operator*(int &n) { return Vec3{x + n, y + n, z + n}; }
     Vec3 operator*(int &&n) { return Vec3{x + n, y + n, z + n}; }
 };
+
+struct Vec2 {
+    float u, v;
+};

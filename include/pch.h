@@ -1,6 +1,7 @@
 #pragma once
 #include "configuration.h"
 #include "math.h"
+#include "stb_image.h"
 #include <SDL2/SDL.h>
 #include <cmath>
 #include <cstring>

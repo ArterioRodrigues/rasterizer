@@ -1,5 +1,4 @@
 #include "../include/renderer.h"
-#include "../include/camera.h"
 
 uint32_t *framebuffer = static_cast<uint32_t *>(malloc(WINDOW_SIZE * sizeof(uint32_t)));
 float *depthbuffer = static_cast<float *>(malloc(WINDOW_SIZE * sizeof(float)));
@@ -124,3 +123,30 @@ void draw_rectangle(Vec3 a, Vec3 b, Vec3 c, Vec3 d, uint32_t color) {
     draw_triangle(ax, ay, ad, cx, cy, cd, dx, dy, dd, color);
 }
 
+void draw_mesh(Camera camera, Mesh mesh, RenderMode mode) {
+    for (Triangle face : mesh.faces) {
+        Vec3 a, b, c;
+        int ax, ay, bx, by, cx, cy;
+        float az, bz, cz;
+
+        a = apply_view(camera, mesh.vertices[face.a]);
+        b = apply_view(camera, mesh.vertices[face.b]);
+        c = apply_view(camera, mesh.vertices[face.c]);
+
+        project(a, ax, ay, az);
+        project(b, bx, by, bz);
+        project(c, cx, cy, cz);
+
+        switch (mode) {
+        case SOLID:
+            draw_triangle(ax, ay, az, bx, by, bz, cx, cy, cz, RED);
+            break;
+
+        case WIREFRAME:
+            draw_line(ax, ay, az, bx, by, bz, RED);
+            draw_line(ax, ay, az, cx, cy, cz, RED);
+            draw_line(bx, by, bz, cx, cy, cz, RED);
+            break;
+        }
+    }
+}
