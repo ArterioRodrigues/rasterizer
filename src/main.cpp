@@ -7,9 +7,9 @@
 
 bool toggle = true;
 Camera camera;
-Mesh mesh = load_obj("./build/cube.obj");
+Texture t = load_texture("./build/img.png");
+Mesh mesh = load_obj("./build/uv_cube.obj");
 
-Texture t;
 bool handle_keydown(SDL_Keycode code) {
     float yaw_radians = camera.yaw * (std::numbers::pi / 180.0);
     Vec3 forward = {std::sin(yaw_radians), 0.0f, -std::cos(yaw_radians)};
@@ -51,7 +51,7 @@ bool handle_keydown(SDL_Keycode code) {
     return true;
 }
 
-void update_world() { draw_mesh(camera, mesh, toggle ? SOLID : WIREFRAME); }
+void update_world() { draw_mesh(camera, mesh, t, toggle ? TEXTURE : WIREFRAME); }
 
 bool loop() {
     while (SDL_PollEvent(&event) != 0) {
@@ -76,8 +76,6 @@ bool loop() {
 
 int main() {
     init_sdl();
-
-    load_texture(t, "build/img.png");
     while (loop())
         SDL_Delay(10);
 

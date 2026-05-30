@@ -11,5 +11,10 @@ struct Vec3 {
 };
 
 struct Vec2 {
-    float u, v;
+    float x, y;
+};
+
+struct Point {
+    int x, y;
+    float z;
 };

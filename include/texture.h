@@ -6,4 +6,4 @@ struct Texture {
     std::vector<uint32_t> pixels;
 };
 
-void load_texture(Texture &texture, const char *path);
+Texture load_texture(const char *path);
